@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Contact DataTable">
+        <template lwc:if={conList}>
+            <lightning-datatable
+            columns={columns}
+            data={conList.data} 
+            key-field="Id">
+            </lightning-datatable>
+        </template>
+        <template if:true={errors}>
+            <p>{errors}</p>
+        </template>
+    </lightning-card> 
+</template>

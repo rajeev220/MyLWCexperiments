@@ -1,0 +1,75 @@
+<template>
+    <lightning-card title="Create New Employee" id="vendor-form">
+        <div class="slds-m-around_medium">
+            <p class="slds-text-body_regular">Please confirm information below to register.</p>
+        </div>
+        <div class="slds-page-header">
+            Employee Information <span style="color:red">(All Fields Required)</span>
+        </div>
+        <div class="c-container">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-grid slds-size_1-of-1 slds-large-size_6-of-12">
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_none">
+
+                        <div class="slds-form-element">
+                            <lightning-combobox name="title" label="Title" value="" placeholder="Select an Option" options={options} required>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+
+                    <div class="slds-form-element">
+
+                        <lightning-input type="text" name="firstName" label="First Name" required></lightning-input>
+
+                    </div>
+
+                    <div class="slds-form-element">
+                        <lightning-input required type="text" name="lastName" label="Last Name"></lightning-input>
+
+                    </div>
+                    <div class="slds-form-element">
+                        <span>
+                            <lightning-formatted-text class="slds-form-element__label slds-no-flex" value="Primary Phone#" name="primaryPhone"></lightning-formatted-text>
+                        </span>
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item padding="horizontal-small" size="4" flexibility="auto">
+                                <lightning-input required type="tel" name="phone1" label="" maxlength="3" pattern="\d{3}" message-when-pattern-mismatch="Please enter only digits" ></lightning-input>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="horizontal-small" size="4" flexibility="auto">
+                                <lightning-input required type="tel" name="phone2" label="" maxlength="3" pattern="\d{3}" message-when-pattern-mismatch="Please enter only digits"></lightning-input>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="horizontal-small" size="4" flexibility="auto">
+                                <lightning-input required type="tel" name="phone3" label="" maxlength="4" pattern="\d{4}" message-when-pattern-mismatch="Please enter only digits"></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+
+                    </div>
+
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+                    <p></p>
+                    <div class="slds-form-element">
+                        <lightning-input type="email" name="email" label="Email" required></lightning-input>
+
+                    </div>
+                    <div class="slds-form-element">
+                        <lightning-input required type="date" name="dob" label="Date of Birth"></lightning-input>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12" small-device-size="12" large-device-size="6" medium-device-size="6">
+                <div class="slds-float_right">
+                    <lightning-button label="Cancel" title="Cancel" onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button variant="brand" label="Create Employee" title="Brand action" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Account Lightning Data Table">
+        <template lwc:if={accounts}>
+            <lightning-datatable
+                key-field="Id"
+                data={accounts.data}
+                columns={columns}
+            >
+            </lightning-datatable>
+        </template>
+        <template if:true={errors}>
+            <p>{errors}</p>
+        </template>
+    </lightning-card> 
+</template>
